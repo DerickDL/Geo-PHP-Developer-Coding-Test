@@ -1,19 +1,39 @@
-# Basic Laravel Docker Setup
+# Geo PHP Developer Coding Test
 
-This repository contains a basic Docker setup for Laravel, including nginx, PHP, MySQL, Redis, and NPM. This setup allows you to easily develop, test, and deploy your Laravel application in a Docker environment.
+This project is a simple REST API in PHP that provides endpoints for managing users and orders in a database.
 
-## Requirements
+## Coding Test Requirements
+
+The project has the following requirements:
+
+- The database should contain two tables named `users` and `orders`.
+- A user should have a name.
+- An order must belong to a user and should have a date and total value.
+- Create an endpoint to create a user.
+- Create an endpoint to create an order.
+- Create an endpoint that can get a user by id.
+- Create an endpoint that can update a user’s name.
+- Create an endpoint that accepts a user id and returns all orders and the sum of all order total values.
+
+## Technologies Used
+
+The project utilizes the following technologies:
+
+- PHP (version 5.6 and above)
+- Relational database (ideally Postgres)
+- Docker
+
+## Execution Requirements
 Before getting started, you will need to have the following software installed on your machine:
 - Docker
 - Docker Compose
 
 ## Getting Started
 To use this Docker setup for your Laravel application, follow these steps:
-1. Clone this repository to your local machine: git clone https://github.com/DerickDL/LaravelDockerSetup.git.
-2. Copy the contents of your Laravel application into the app folder.
-3. Copy your .env file into the /src directory of this repository.
-4. Run docker-compose up -d in the root directory to start the Docker containers.
-5. Visit http://localhost in your browser to view your Laravel application.
+1. Clone this repository to your local machine: git clone https://github.com/DerickDL/Geo-PHP-Developer-Coding-Test.git.
+2. Copy your .env file into the /src directory of this repository.
+3. Run docker-compose up -d in the root directory to start the Docker containers.
+4. Visit http://localhost in your browser to view your Laravel application.
 
 ## Configuration
 The following Docker containers are included in this setup:
