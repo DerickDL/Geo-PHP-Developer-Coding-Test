@@ -24,4 +24,16 @@ class UserService
     public function getUserById($userId) {
         return User::find($userId);
     }
+
+    /**
+     * Update a user name
+     */
+    public function updateUserName($userId, $userData) {
+        $user = User::find($userId);
+        if ($user === null) {
+            return false;
+        }
+        $user->name = $userData['name'];
+        return $user->save();
+    }
 }

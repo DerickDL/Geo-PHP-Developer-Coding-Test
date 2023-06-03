@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Services\UserService;
 use App\Models\User;
-use App\Requests\CreateUserRequest;
+use App\Requests\UserRequest;
+use OpenApi\Annotations as OA;
 
 /**
  * @author John Derick De Leon
@@ -34,7 +35,7 @@ class UserController extends Controller
     /**
      * Create a new user
      */
-    public function create(CreateUserRequest $request) {
+    public function create(UserRequest $request) {
         $user = $this->userService->createUser($request->validated());
         return response()->json(['message' => 'User created successfully', 'user' => $user], 201);
     }
@@ -49,6 +50,15 @@ class UserController extends Controller
         }
         return response()->json(['message' => 'User retrieved successfully', 'user' => $user], 201);
     }
-
-
+        
+    /**
+     * Update a user name
+     */
+    public function updateUserName($userId, UserRequest $request) {
+        $updateUser = $this->userService->updateUserName($userId, $request->validated());
+        if ($updateUser === false) {
+            return response()->json(['error' => 'User cannot be updated'], 404);
+        }
+        return response()->json(['message' => 'User successfully updated'], 201);
+    }
 }
