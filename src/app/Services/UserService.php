@@ -18,7 +18,10 @@ class UserService
         return User::create($userData);
     }
 
-    public function getAllUsers() {
-        return User::all();
+    /**
+     * Get a user by id
+     */
+    public function getUserById($userId) {
+        return User::find($userId);
     }
 }

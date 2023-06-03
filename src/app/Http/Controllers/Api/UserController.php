@@ -39,5 +39,16 @@ class UserController extends Controller
         return response()->json(['message' => 'User created successfully', 'user' => $user], 201);
     }
 
+    /**
+     * Get a user by id
+     */
+    public function getById($id) {
+        $user = $this->userService->getUserById($id);
+        if($user === null) {
+            return response()->json(['error' => 'User cannot be found'], 404);
+        }
+        return response()->json(['message' => 'User retrieved successfully', 'user' => $user], 201);
+    }
+
 
 }

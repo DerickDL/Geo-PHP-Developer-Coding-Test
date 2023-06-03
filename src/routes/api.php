@@ -22,6 +22,7 @@ use App\Http\Controllers\Api\UserController;
 
 Route::prefix('/user')->group(function () {
     Route::post('/create', [UserController::class, 'create'])->name('users.create');
+    Route::get('/{id}', [UserController::class, 'getById'])->name('users.getbyid');
 });
 
 Route::prefix('/order')->group(function () {
