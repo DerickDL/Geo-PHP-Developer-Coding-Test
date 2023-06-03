@@ -32,8 +32,14 @@ Before getting started, you will need to have the following software installed o
 To use this Docker setup for your Laravel application, follow these steps:
 1. Clone this repository to your local machine: git clone https://github.com/DerickDL/Geo-PHP-Developer-Coding-Test.git.
 2. Copy your .env file into the /src directory of this repository.
+3. Run docker-compose build in the root directory to start the Docker containers.
 3. Run docker-compose up -d in the root directory to start the Docker containers.
-4. Visit http://localhost in your browser to view your Laravel application.
+4. Run docker-compose run --rm artisan migrate
+6. /var/www/html chown -R www-data:www-data .
+7. Visit http://localhost in your browser to view your Laravel application.
+
+## How to run the tests
+// Add here the following
 
 ## Configuration
 The following Docker containers are included in this setup:
