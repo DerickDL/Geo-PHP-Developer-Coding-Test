@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Order;
 use Illuminate\Database\QueryException;
+use Carbon\Carbon;
 
 /**
  * @author John Derick De Leon
@@ -17,6 +18,7 @@ class OrderService
      */
     public function createOrder($orderData) {
         try {
+            $orderData['date'] = Carbon::now()->toDateString();
             return Order::create($orderData);
         } catch (QueryException $e) {
             return false;

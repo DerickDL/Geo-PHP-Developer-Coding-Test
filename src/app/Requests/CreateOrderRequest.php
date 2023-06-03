@@ -16,7 +16,6 @@ class CreateOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'date' => 'required|string',
             'total_value' => 'required|numeric',
             'user_id' => 'required|integer'
         ];
