@@ -45,12 +45,9 @@ class UserController extends Controller
      */
     public function getById($id) {
         $user = $this->userService->getUserById($id);
-        if($user === null) {
-            return response()->json(['error' => 'User cannot be found'], 404);
-        }
-        return response()->json(['message' => 'User retrieved successfully', 'user' => $user], 201);
+        return response()->json(['user' => $user], 201);
     }
-        
+
     /**
      * Update a user name
      */

@@ -24,6 +24,7 @@ Route::prefix('/user')->group(function () {
     Route::post('/create', [UserController::class, 'create'])->name('users.create');
     Route::get('/{id}', [UserController::class, 'getById'])->name('users.getById');
     Route::put('/{id}', [UserController::class, 'updateUserName'])->name('users.updateUserName');
+    Route::get('/{id}/orders', [OrderController::class, 'getOrdersByUser'])->name('orders.getByUser');
 });
 
 Route::prefix('/order')->group(function () {

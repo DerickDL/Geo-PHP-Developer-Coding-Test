@@ -36,5 +36,11 @@ class OrderController extends Controller
         return response()->json(['error' => 'Order creation unsuccessful'], 500);;
     }
 
-
+    /**
+     * Get all orders by user id
+     */
+    public function getOrdersByUser($userId) {
+        $orders = $this->orderService->getOrdersByUserId($userId);
+        return response()->json(['order' => $orders], 201);
+    }
 }

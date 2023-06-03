@@ -25,4 +25,22 @@ class OrderService
         }
         
     }
+
+    /**
+     * Get all orders by user id
+     */
+    public function getOrdersByUserId($userId) { 
+        $ordersByUser = Order::where('user_id', $userId)->get();
+        $sum_total_value = 0;
+        $orders = [];
+
+        foreach ($ordersByUser as $order) {
+            $sum_total_value += $order->total_value;
+            $orders[] = $order;
+        }
+        return [
+            'orders' => $orders,
+            'sum_total_value' => $sum_total_value
+        ];
+    }
 }
