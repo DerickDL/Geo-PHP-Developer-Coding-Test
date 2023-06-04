@@ -5,18 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Order extends Model
 {
     use HasFactory;
-
+    
     protected $fillable = [
-        'name'
+        'user_id',
+        'date',
+        'total_value'
     ];
 
-    /**
-     * Relationship with Order model
-     */
-    public function orders() {
-        return $this->hasMany(Orders::class);
-    }
+    
 }
