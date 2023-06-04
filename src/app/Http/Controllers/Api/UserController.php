@@ -27,29 +27,40 @@ class UserController extends Controller
         $this->userService = new UserService();
     }
 
-    // Test function only
-    public function index() {
-        return $this->userService->getAllUsers();
-    }
-
     /**
-     * Create a new user
+     * @lrd:start
+     * *Create a new user*
+     * @lrd:end
+     * 
+     * @LRDparam name required|string
+     * 
+     * @LRDresponses 201
      */
     public function create(UserRequest $request) {
         $user = $this->userService->createUser($request->validated());
         return response()->json(['message' => 'User created successfully', 'user' => $user], 201);
     }
 
-    /**
-     * Get a user by id
+   /**
+     * @lrd:start
+     * *Get a user by ID*
+     * @lrd:end
+     * 
+     * @LRDresponses 200
      */
     public function getById($id) {
         $user = $this->userService->getUserById($id);
-        return response()->json(['user' => $user], 201);
+        return response()->json(['user' => $user], 200);
     }
 
     /**
-     * Update a user name
+     * @lrd:start
+     * *Update user name*
+     * @lrd:end
+     * 
+     * @LRDparam name required|string
+     * 
+     * @LRDresponses 201|404
      */
     public function updateUserName($userId, UserRequest $request) {
         $updateUser = $this->userService->updateUserName($userId, $request->validated());

@@ -26,7 +26,15 @@ class OrderController extends Controller
     }
 
     /**
-     * Create a new order
+     * @lrd:start
+     * *Create order request*
+     * @lrd:end
+     * 
+     * @LRDparam user_id required|integer
+     * 
+     * @LRDparam total_value required|numeric
+     * 
+     * @LRDresponses 201|500
      */
     public function create(CreateOrderRequest $request) {
         $order = $this->orderService->createOrder($request->validated());
@@ -37,10 +45,14 @@ class OrderController extends Controller
     }
 
     /**
-     * Get all orders by user id
+     * @lrd:start
+     * *Get all orders by user id*
+     * @lrd:end
+     * 
+     * @LRDresponses 200
      */
     public function getOrdersByUser($userId) {
         $orders = $this->orderService->getOrdersByUserId($userId);
-        return response()->json(['order' => $orders], 201);
+        return response()->json(['order' => $orders], 200);
     }
 }
