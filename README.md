@@ -35,8 +35,8 @@ To use this Docker setup for your Laravel application, follow these steps:
 2. Copy the .env.example to your .env file into the /src directory of this repository.
 3. Run docker-compose build in the root directory to start the Docker containers.
 4. Run docker-compose up -d in the root directory to start the Docker containers.
-5. Get inside php container using docker-compose exec php /bin/bash
-    5.a. Then run this command: chown -R www-data:www-data .
+5. Get inside php container using docker-compose exec php /bin/sh
+	> /var/www/html # chown -R www-data:www-data .
 6. Run docker-compose run --rm composer install 
 7. Run docker-compose run --rm artisan migrate
 8. Visit http://localhost in your browser to view your Laravel application.
