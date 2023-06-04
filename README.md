@@ -41,6 +41,9 @@ To use this Docker setup for your Laravel application, follow these steps:
 7. Run docker-compose run --rm artisan migrate
 8. Visit http://localhost in your browser to view your Laravel application.
 
+## How to access the API documentation
+1. Visit http://localhost/request-docs
+
 ## How to run the tests
 - docker-compose run --rm artisan test --testsuite=Unit
 
