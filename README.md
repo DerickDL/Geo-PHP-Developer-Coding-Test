@@ -52,8 +52,6 @@ The following Docker containers are included in this setup:
 - nginx: serves as the web server and handles incoming HTTP requests.
 - php: runs the PHP code for your Laravel application.
 - mysql: provides the database server for your application.
-- redis: is a caching system that can improve the performance of your Laravel application.
-- npm: is used to install and manage the JavaScript dependencies for your application.
 
 You can configure each of these containers by modifying the docker-compose.yml file.
 
