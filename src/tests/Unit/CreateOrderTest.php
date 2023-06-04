@@ -16,12 +16,15 @@ class CreateOrderTest extends TestCase
         $user = $userService->createUser(['name' => 'John Doe']);
         $orderData = [
             'user_id' => $user->id,
-            'date' => '2023-06-03',
             'total_value' => 12000
         ];
         $orderService = new OrderService();
-        $orderService->createOrder($orderData);
-        $this->assertDatabaseHas('orders', $orderData);
+        $order = $orderService->createOrder($orderData);
+        $this->assertDatabaseHas('orders', [
+            'user_id' => $user->id,
+            'date' => $order->date,
+            'total_value' => 12000
+        ]);
     }
 
     public function test_create_order_fail() {

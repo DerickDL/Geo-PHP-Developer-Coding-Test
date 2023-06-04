@@ -19,8 +19,9 @@ The project has the following requirements:
 
 The project utilizes the following technologies:
 
-- PHP (version 5.6 and above)
-- Relational database (ideally Postgres)
+- PHP 8.1.16
+- Laravel 8.83.27
+- MySQL 5.7.32
 - Docker
 
 ## Execution Requirements
@@ -28,18 +29,20 @@ Before getting started, you will need to have the following software installed o
 - Docker
 - Docker Compose
 
-## Getting Started
+## How to build the project
 To use this Docker setup for your Laravel application, follow these steps:
 1. Clone this repository to your local machine: git clone https://github.com/DerickDL/Geo-PHP-Developer-Coding-Test.git.
-2. Copy your .env file into the /src directory of this repository.
+2. Copy the .env.example to your .env file into the /src directory of this repository.
 3. Run docker-compose build in the root directory to start the Docker containers.
-3. Run docker-compose up -d in the root directory to start the Docker containers.
-4. Run docker-compose run --rm artisan migrate
-6. /var/www/html chown -R www-data:www-data .
-7. Visit http://localhost in your browser to view your Laravel application.
+4. Run docker-compose up -d in the root directory to start the Docker containers.
+5. Get inside php container using docker-compose exec php /bin/bash
+    5.a. Then run this command: chown -R www-data:www-data .
+6. Run docker-compose run --rm composer install 
+7. Run docker-compose run --rm artisan migrate
+8. Visit http://localhost in your browser to view your Laravel application.
 
 ## How to run the tests
-// Add here the following
+- docker-compose run --rm artisan test --testsuite=Unit
 
 ## Configuration
 The following Docker containers are included in this setup:

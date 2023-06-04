@@ -13,7 +13,7 @@ class UpdateUserNameTest extends TestCase
     public function test_update_user_name_success() {
         $userService = new UserService();
         $user = $userService->createUser(['name' => 'Joey']);
-        $updatedUser = $userService->updateUserName(1, ['name' => 'Wick']);
+        $updatedUser = $userService->updateUserName($user->id, ['name' => 'Wick']);
         $this->assertDatabaseHas('users',[
             'id' => $user->id,
             'name' => 'Wick'
